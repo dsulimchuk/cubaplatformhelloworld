@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.cubatest.web.producttypes.ProductTypesEdit"
+        datasource="productTypesDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.cubatest.web.producttypes">
+    <dsContext>
+        <datasource id="productTypesDs"
+                    class="com.company.cubatest.entity.ProductTypes"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="productTypesDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="roleName"/>
+                <field property="checkBal"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

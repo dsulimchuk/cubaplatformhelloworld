@@ -1,0 +1,49 @@
+<%
+screenId = "${entity.name}.browse"
+controllerName = "${entity.className}Browse"
+
+def platform_6_1_plus = api.compareWithCurrentPlatformVersion('6.0-SNAPSHOT') > 0
+def pluralForm = api.pluralForm(entity.uncapitalizedClassName)
+tableId = "${pluralForm}Table"
+def tableDs = entity.uncapitalizedClassName.equals(pluralForm) ? pluralForm + "CollectionDs" : pluralForm + "Ds"
+def isNotPersistEntity = entity.isDeepInheritor('com.haulmont.cuba.core.entity.AbstractNotPersistentEntity')
+
+def tableXml = api.processSnippet('screen/table.xml',
+        ['entity': entity,
+        'view': browseView,
+        'tableDs': tableDs,
+        'tableType': tableType,
+        'tableId': tableId,
+        'multiselect': multiselect,
+        'presentation': presentation,
+        'tableActions': tableActions,
+        'editorOpenType': editorOpenType])
+%><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="${xmlNamespace_window}"
+        caption="msg://browseCaption"
+        class="${packageName}.${controllerName}"
+        focusComponent="${tableId}"
+        lookupComponent="${tableId}"
+        messagesPack="${packageName}">
+    <dsContext>
+        <${tableType.dsName} id="${tableDs}"
+                              class="${entity.fqn}"<%(tableType.dsName == 'hierarchicalDatasource') ? print("\nhierarchyProperty='${tableType_hierarchicalProperty}'") : print("") %><%if (isNotPersistEntity) {%>
+                              refreshMode="NEVER"/><%} else {%>
+                              view="${browseView.name}">
+            <query>
+                <![CDATA[select e from ${entity.name} e]]>
+            </query>
+        </${tableType.dsName}><%}%>
+    </dsContext>
+    <%if (platform_6_1_plus) {%><dialogMode height="600"
+                width="800"/><%}%>
+    <layout expand="${tableId}"
+            spacing="true"><%if (createFilter) {%>
+        <filter id="filter"
+                applyTo="${tableId}"
+                datasource="${tableDs}">
+            <properties include=".*"/>
+        </filter><%}%>
+        ${tableXml}
+    </layout>                
+</window>

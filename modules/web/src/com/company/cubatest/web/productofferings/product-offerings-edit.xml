@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.cubatest.web.productofferings.ProductOfferingsEdit"
+        datasource="productOfferingsDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.cubatest.web.productofferings">
+    <dsContext>
+        <datasource id="productOfferingsDs"
+                    class="com.company.cubatest.entity.ProductOfferings"
+                    view="ProductOfferings-screen-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="productOfferingsDs">
+                <column width="250px">
+                    <field property="code"/>
+                    <field property="name"/>
+                    <field property="description"/>
+                    <field property="validForDateFrom"/>
+                    <field property="validForDateTo"/>
+                    <field property="prctPrct"/>
+                    <field property="termProdDurLength"/>
+                    <field property="termNumbOfOcc"/>
+                    <field property="termOccPeriodLength"/>
+                    <field property="termOccPermu"/>
+                    <field property="termMultOcc"/>
+                    <field property="prlnPrln"/>
+                    <field property="prspPrsp"/>
+                    <field property="classClass"/>
+                    <field property="changeDate"/>
+                    <field property="dummy"/>
+                    <field property="termProdDurPermu"/>
+                    <field property="bisObjHash"/>
+                    <field property="termDurLimitDate"/>
+                    <field property="termIntRecChrgsMgmt"/>
+                    <field property="prtpPrtp"/>
+                    <field property="termAbilityForBlock"/>
+                    <field property="ver"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.cubatest.web.productspecifications.ProductSpecificationsBrowse"
+        focusComponent="productSpecificationsesTable"
+        lookupComponent="productSpecificationsesTable"
+        messagesPack="com.company.cubatest.web.productspecifications">
+    <dsContext>
+        <groupDatasource id="productSpecificationsesDs"
+                         class="com.company.cubatest.entity.ProductSpecifications"
+                         view="ProductSpecifications-screen-view">
+            <query>
+                <![CDATA[select e from cubatest$ProductSpecifications e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="productSpecificationsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="productSpecificationsesTable"
+                datasource="productSpecificationsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="productSpecificationsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="parentPrsp"/>
+                <column id="name"/>
+                <column id="validForDateFrom"/>
+                <column id="validForDateTo"/>
+                <column id="classClass"/>
+                <column id="ver"/>
+            </columns>
+            <rows datasource="productSpecificationsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="productSpecificationsesTable.create"/>
+                <button id="editBtn"
+                        action="productSpecificationsesTable.edit"/>
+                <button id="removeBtn"
+                        action="productSpecificationsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

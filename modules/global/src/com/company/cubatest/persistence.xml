@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="cubatest"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.cubatest.entity.ProductOfferings</class>
+        <class>com.company.cubatest.entity.ProductCategories</class>
+        <class>com.company.cubatest.entity.ProductLines</class>
+        <class>com.company.cubatest.entity.ProductSpecifications</class>
+        <class>com.company.cubatest.entity.ProductTypes</class>
+        <class>com.company.cubatest.entity.EmbeddedProductOfferings</class>
+        <class>com.company.cubatest.entity.Classes</class>
+        <class>com.company.cubatest.entity.MeasureUnits</class>
+        <class>com.company.cubatest.entity.PeriodMeasureUnits</class>
+    </persistence-unit>
+</persistence>

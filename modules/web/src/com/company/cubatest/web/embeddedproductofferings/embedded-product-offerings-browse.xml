@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.cubatest.web.embeddedproductofferings.EmbeddedProductOfferingsBrowse"
+        focusComponent="embeddedProductOfferingsesTable"
+        lookupComponent="embeddedProductOfferingsesTable"
+        messagesPack="com.company.cubatest.web.embeddedproductofferings">
+    <dsContext>
+        <groupDatasource id="embeddedProductOfferingsesDs"
+                         class="com.company.cubatest.entity.EmbeddedProductOfferings"
+                         view="EmbeddedProductOfferings-screen-view">
+            <query>
+                <![CDATA[select e from cubatest$EmbeddedProductOfferings e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="embeddedProductOfferingsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="embeddedProductOfferingsesTable"
+                datasource="embeddedProductOfferingsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="embeddedProductOfferingsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="parentProf"/>
+                <column id="orderIdx"/>
+                <column id="validForDateFrom"/>
+                <column id="validForDateTo"/>
+                <column id="childProf"/>
+            </columns>
+            <rows datasource="embeddedProductOfferingsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="embeddedProductOfferingsesTable.create"/>
+                <button id="editBtn"
+                        action="embeddedProductOfferingsesTable.edit"/>
+                <button id="removeBtn"
+                        action="embeddedProductOfferingsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.cubatest.web.productofferings.ProductOfferingsBrowse"
+        focusComponent="productOfferingsesTable"
+        lookupComponent="productOfferingsesTable"
+        messagesPack="com.company.cubatest.web.productofferings">
+    <dsContext>
+        <groupDatasource id="productOfferingsesDs"
+                         class="com.company.cubatest.entity.ProductOfferings"
+                         view="ProductOfferings-screen-view">
+            <query>
+                <![CDATA[select e from ProductOfferings e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="productOfferingsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="productOfferingsesTable"
+                datasource="productOfferingsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="productOfferingsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="name"/>
+                <column id="description"/>
+                <column id="validForDateFrom"/>
+                <column id="validForDateTo"/>
+                <column id="prctPrct"/>
+                <column id="termProdDurLength"/>
+                <column id="termNumbOfOcc"/>
+                <column id="termOccPeriodLength"/>
+                <column id="termOccPermu"/>
+                <column id="termMultOcc"/>
+                <column id="prlnPrln"/>
+                <column id="prspPrsp"/>
+                <column id="classClass"/>
+                <column id="changeDate"/>
+                <column id="dummy"/>
+                <column id="termProdDurPermu"/>
+                <column id="bisObjHash"/>
+                <column id="termDurLimitDate"/>
+                <column id="termIntRecChrgsMgmt"/>
+                <column id="prtpPrtp"/>
+                <column id="termAbilityForBlock"/>
+                <column id="ver"/>
+            </columns>
+            <rows datasource="productOfferingsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="productOfferingsesTable.create"/>
+                <button id="editBtn"
+                        action="productOfferingsesTable.edit"/>
+                <button id="removeBtn"
+                        action="productOfferingsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

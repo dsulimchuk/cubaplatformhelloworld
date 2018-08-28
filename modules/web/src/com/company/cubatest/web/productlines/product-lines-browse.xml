@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.cubatest.web.productlines.ProductLinesBrowse"
+        focusComponent="productLinesesTable"
+        lookupComponent="productLinesesTable"
+        messagesPack="com.company.cubatest.web.productlines">
+    <dsContext>
+        <groupDatasource id="productLinesesDs"
+                         class="com.company.cubatest.entity.ProductLines"
+                         loadDynamicAttributes="true"
+                         view="_local">
+            <query>
+                <![CDATA[select e from cubatest$ProductLines e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="productLinesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="productLinesesTable"
+                datasource="productLinesesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="productLinesesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="productLinesesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="productLinesesTable.create"/>
+                <button id="editBtn"
+                        action="productLinesesTable.edit"/>
+                <button id="removeBtn"
+                        action="productLinesesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.cubatest.web.productspecifications.ProductSpecificationsEdit"
+        datasource="productSpecificationsDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.cubatest.web.productspecifications">
+    <dsContext>
+        <datasource id="productSpecificationsDs"
+                    class="com.company.cubatest.entity.ProductSpecifications"
+                    view="ProductSpecifications-screen-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="productSpecificationsDs">
+            <column width="250px">
+                <field property="parentPrsp"/>
+                <field property="name"/>
+                <field property="validForDateFrom"/>
+                <field property="validForDateTo"/>
+                <field property="classClass"/>
+                <field property="ver"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-cubatest"
+          insertBefore="administration">
+        <item screen="ProductOfferings.browse"/>
+        <item screen="cubatest$ProductCategories.browse"/>
+        <item screen="cubatest$ProductLines.browse"/>
+        <item screen="cubatest$ProductSpecifications.browse"/>
+        <item screen="cubatest$ProductTypes.browse"/>
+        <item screen="cubatest$EmbeddedProductOfferings.browse"/>
+        <item screen="cubatest$Classes.browse"/>
+        <item screen="cubatest$MeasureUnits.browse"/>
+    </menu>
+</menu-config>

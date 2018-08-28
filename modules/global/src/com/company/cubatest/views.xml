@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.cubatest.entity.ProductOfferings"
+          extends="_local"
+          name="ProductOfferings-screen-view">
+        <property name="prctPrct"
+                  view="_minimal"/>
+        <property name="termOccPermu"
+                  view="_minimal"/>
+        <property name="prlnPrln"
+                  view="_minimal"/>
+        <property name="prspPrsp"
+                  view="_minimal"/>
+        <property name="classClass"
+                  view="_minimal"/>
+        <property name="termProdDurPermu"
+                  view="_minimal"/>
+        <property name="prtpPrtp"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.cubatest.entity.ProductSpecifications"
+          extends="_local"
+          name="ProductSpecifications-screen-view">
+        <property name="parentPrsp"
+                  view="_minimal"/>
+        <property name="classClass"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.cubatest.entity.EmbeddedProductOfferings"
+          extends="_local"
+          name="EmbeddedProductOfferings-screen-view">
+        <property name="parentProf"
+                  view="_minimal"/>
+        <property name="childProf"
+                  view="_minimal"/>
+    </view>
+</views>

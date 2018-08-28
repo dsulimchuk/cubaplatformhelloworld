@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.cubatest.web.producttypes.ProductTypesBrowse"
+        focusComponent="productTypesesTable"
+        lookupComponent="productTypesesTable"
+        messagesPack="com.company.cubatest.web.producttypes">
+    <dsContext>
+        <groupDatasource id="productTypesesDs"
+                         class="com.company.cubatest.entity.ProductTypes"
+                         view="_local">
+            <query>
+                <![CDATA[select e from cubatest$ProductTypes e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="productTypesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="productTypesesTable"
+                datasource="productTypesesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="productTypesesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="roleName"/>
+                <column id="checkBal"/>
+            </columns>
+            <rows datasource="productTypesesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="productTypesesTable.create"/>
+                <button id="editBtn"
+                        action="productTypesesTable.edit"/>
+                <button id="removeBtn"
+                        action="productTypesesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>
